@@ -1,5 +1,9 @@
 const startButton = document.getElementById("start")
+const introPara = document.getElementById("siteIntro")
+const strtbtn = document.getElementById("StartButton")
 
+//console.log(introPara)
+//console.log(strtbtn)
 //console.log(startButton)
 
 startButton.addEventListener("click", startGame)
@@ -16,6 +20,8 @@ try{
             funFact: data.funFact
         }
         console.log(hist)
+        strtbtn.style.display = "none";
+        introPara.style.display = "none";
 
     }else{
         throw "Somethhing has gone wrong with the API request"
