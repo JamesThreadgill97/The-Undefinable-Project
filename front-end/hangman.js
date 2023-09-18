@@ -16,8 +16,6 @@ let lives = 8
 let n = Math.floor(Math.random() * history.length)
 let word = history[n].name
 
-
-
 let matrix = Array.from(new Array(1), _ => Array(word.length).fill("_"))
 let hasSpaces = true
 for (let hs = 0; hs < word.length; hs++){
