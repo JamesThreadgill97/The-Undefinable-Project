@@ -1,0 +1,14 @@
+body {
+    text-align: center;
+    justify-content: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+h1 {
+    color: rgb(44, 109, 237);
+    font-size: 50 px;
+}
+
+#button {
+    background-color: rgb(237, 204, 19);
+}
