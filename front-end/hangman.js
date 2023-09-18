@@ -38,7 +38,7 @@ while (complete == false){
 guess = prompt("Guess a letter\n");
 console.log("Checking")
 
-if (word.toLowerCase().includes(guess)){
+if (word.toLowerCase().includes(guess.toLowerCase())){
     for(let j = 0; j < word.length; j++){
         if (word[j].toLowerCase() == guess.toLowerCase()){
             if (j == 0 || (j > 0 && matrix[0][j - 1] == "/")){
