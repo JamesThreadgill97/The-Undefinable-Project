@@ -10,12 +10,13 @@ const guesses = document.querySelector("#guess-form")
 const createForm =document.querySelector("#create-form");
 const vicLos = document.getElementById("winLose")
 const lettersUsed = document.getElementById("letterBank")
+const graphic = document.getElementById("hangmanGraphic")
 
-console.log(guesses)
+console.log(graphic)
 
 let letter_bank = []
 let noHints = 2
-let lives = 9
+let lives = 8
 
 startButton.addEventListener("click", startGame)
 hints.addEventListener("click", provideHint)
@@ -25,11 +26,31 @@ createForm.addEventListener("submit", createNewFigure);
 function youWin(){
     console.log("You win!")
     vicLos.textContent = `Congratulations! You win! Did you know...${hist["funFact"]}`
-}
+    
+    guesses.style.display = "none"
+    createForm.style.display = "inline"
+    strtbtn.style.display = "inline";
+    introPara.style.display = "inline";
+    hints.style.display = "none";
+    lettersUsed.textContent = ""
+    underscores.textContent = hist["name"]
+    underscores.style.fontWeight = "bold"
+    letter_bank = []
+}    
 
 function youLose(){
     console.log("You lose!")
     vicLos.textContent = `I'm sorry, you're out of lives! Did you know...${hist["funFact"]}`
+    guesses.style.display = "none"
+    createForm.style.display = "inline"
+    strtbtn.style.display = "inline";
+    introPara.style.display = "inline";
+    hints.style.display = "none";
+    lettersUsed.textContent = ""
+    underscores.textContent = hist["name"]
+    underscores.style.fontWeight = "bold"
+    letter_bank = []
+
 }
 
 async function startGame(){
@@ -49,6 +70,9 @@ async function startGame(){
             hints.style.display = "inline";
             guesses.style.display = "inline";
             createForm.style.display = "none";
+            vicLos.textContent = "";
+            graphic.src = "./Images/Hangman_0.png";
+
 
             window.word = Array.from(new Array(1), _ => Array(hist["name"].length).fill(" _ "))
             for (let hs = 0; hs < hist["name"].length; hs++){
@@ -117,6 +141,11 @@ function submitGuess(e){
         }else{
             lives--
             console.log(`You have ${lives} lives remaining!`)
+            n = 8 - lives
+            console.log(lives)
+            string = `./Images/Hangman_${n}.png`
+            graphic.src = string
+
             if (lives == 0){
                 youLose()
                 
@@ -164,4 +193,3 @@ async function createNewFigure(e) {
       alert("Something is wrong")
     }
   }
-
