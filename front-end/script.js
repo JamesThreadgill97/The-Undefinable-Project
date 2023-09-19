@@ -10,7 +10,7 @@ startButton.addEventListener("click", startGame)
 
 async function startGame(){
 try{
-    const repsData = await fetch(`http://localhost:3000/`)
+    const repsData = await fetch(`https://backendfigures.onrender.com/`)
     if (repsData.ok){
         const data = await repsData.json()
         const hist = {
@@ -24,7 +24,7 @@ try{
         introPara.style.display = "none";
 
     }else{
-        throw "Somethhing has gone wrong with the API request"
+        throw "Something has gone wrong with the API request"
     }
 }catch (e){
     console.log(e)
