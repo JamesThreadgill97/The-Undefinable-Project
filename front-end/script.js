@@ -1,15 +1,21 @@
 const startButton = document.getElementById("start")
 const introPara = document.getElementById("siteIntro")
 const strtbtn = document.getElementById("StartButton")
+const underscores = document.getElementById("HiddenWord")
+const hints = document.getElementById("hint")
+const hintText = document.getElementById("hintText")
+const guessBox = document.getElementById("guessInput")
+const submit = document.getElementById("submitGuess")
 const createForm =document.querySelector("#create-form");
-createForm.addEventListener("submit", createNewFigure);
 
 
-//console.log(introPara)
-//console.log(strtbtn)
-//console.log(startButton)
+let noHints = 2
+console.log(hintText)
 
 startButton.addEventListener("click", startGame)
+hints.addEventListener("click", provideHint)
+submit.addEventListener("click", submitGuess)
+createForm.addEventListener("submit", createNewFigure);
 
 async function startGame(){
     
@@ -17,7 +23,7 @@ try{
     const repsData = await fetch(`https://backendfigures.onrender.com/`)
     if (repsData.ok){
         const data = await repsData.json()
-        const hist = {
+        window.hist = {
             name: data.name,
             hint1: data.hint1,
             hint2: data.hint2,
@@ -26,6 +32,17 @@ try{
         console.log(hist)
         strtbtn.style.display = "none";
         introPara.style.display = "none";
+        hints.style.display = "inline";
+        guessBox.style.display = "inline";
+        submit.style.display = "inline";
+
+        window.word = Array.from(new Array(1), _ => Array(hist["name"].length).fill(" _ "))
+        for (let hs = 0; hs < hist["name"].length; hs++){
+            if (hist["name"][hs] == " "){
+                word[0][hs] = "/"
+            }
+        }
+        underscores.textContent = word[0].join("")
 
     }else{
         throw "Something has gone wrong with the API request"
@@ -33,6 +50,31 @@ try{
 }catch (e){
     console.log(e)
 }
+}
+
+
+function provideHint(){
+    if (noHints > 0){
+        if (noHints == 2){
+            hintText.textContent = hist["hint1"]
+        }else{
+            hintText.textContent = hist["hint2"]
+        }
+        noHints--
+    }else{
+        hintText.textContent = "You're out of hints!"
+    }
+    console.log(hintText.textContent)
+}
+
+function submitGuess(e){
+    e.preventDefault();
+    console.log(e.target.guessInput)
+    const data = e.target.guessInput.value
+    let name = hist["name"]
+    console.log(data)
+    console.log(name)
+    e.target.guessInput.value = ""
 }
 
 async function createNewFigure(e) {
@@ -74,4 +116,4 @@ async function createNewFigure(e) {
             alert("Something is wrong")
         }
   }
-}  
+}

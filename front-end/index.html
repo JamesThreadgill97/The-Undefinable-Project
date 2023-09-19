@@ -23,6 +23,18 @@
          <div class="container" id = "StartButton">
             <button id="start" type = click>Start</button>
           </div>
+
+          <div>
+            <p id = "HiddenWord"></p>
+            <br><br><br>
+            <input type = "text" id = "guessInput" maxlength = "1" style = "display: none; width: 10px"/>
+            <button id = "submitGuess" type = click style = "display: none;">Make a guess!</button>
+            <br><br><br>
+
+            <button id = "hint" type = click style = "display: none;">Need a hint?</button>
+            <p id = "hintText"></p>
+          </div>
+        
           <form id="create-form">
             <input type="text" name="name" placeholder="name">
             <input type="text" name="hint1" placeholder="hint1">
@@ -30,6 +42,7 @@
             <input type="text" name="funFact" placeholder="funFact">
             <input type="submit" value="Create"> 
         </form>
+
         <script src="./script.js" async defer></script>
     </body>
 </html>
