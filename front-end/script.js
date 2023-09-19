@@ -36,6 +36,9 @@ function youWin(){
     underscores.textContent = hist["name"]
     underscores.style.fontWeight = "bold"
     graphic.src = `./Images/${hist["name"]}.png`
+    graphic.style.borderRadius = "8px"
+    graphic.style.width = "200px"
+    graphic.style.width = "200px"
     letter_bank = []
     lives = 8
 }    
@@ -52,6 +55,9 @@ function youLose(){
     underscores.textContent = hist["name"]
     underscores.style.fontWeight = "bold"
     graphic.src = `./Images/${hist["name"]}.png`
+    graphic.style.borderRadius = "8px"
+    graphic.style.width = "200px"
+    graphic.style.width = "200px"
 
     letter_bank = []
     lives = 8
@@ -78,6 +84,8 @@ async function startGame(){
             createForm.style.display = "none";
             vicLos.textContent = "";
             graphic.src = "./Images/Hangman_0.png";
+            graphic.style.borderRadius = "0px"
+
 
 
             window.word = Array.from(new Array(1), _ => Array(hist["name"].length).fill(" _ "))
