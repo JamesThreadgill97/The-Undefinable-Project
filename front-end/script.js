@@ -35,7 +35,9 @@ function youWin(){
     lettersUsed.textContent = ""
     underscores.textContent = hist["name"]
     underscores.style.fontWeight = "bold"
+    graphic.src = `./Images/${hist["name"]}.png`
     letter_bank = []
+    lives = 8
 }    
 
 function youLose(){
@@ -49,7 +51,11 @@ function youLose(){
     lettersUsed.textContent = ""
     underscores.textContent = hist["name"]
     underscores.style.fontWeight = "bold"
+    graphic.src = `./Images/${hist["name"]}.png`
+
     letter_bank = []
+    lives = 8
+
 
 }
 
