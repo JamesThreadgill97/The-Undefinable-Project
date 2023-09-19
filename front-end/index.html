@@ -18,8 +18,9 @@
         <div class="wrapper" id = "siteIntro">
              <h2>Test your History Knowledge with the Hangman Game!</h2>
              <p>Use the alphabet below to guess the word, or click hint to get a clue. <br>Note: Only two hints available - Good Luck!</p>
-         </div>
-    
+            </div>
+            <img id = "hangmanGraphic" src = "./Images/Hangman_8.png" style = >
+            <br><br>
          <div class="container" id = "StartButton">
             <button id="start" type = click>Start</button>
           </div>
@@ -28,9 +29,13 @@
             <p id = "HiddenWord"></p>
             <p id = "winLose"></p>
             <br><br><br>
+            
             <form id = "guess-form" style = "display: none">
-                <input type = "text" id = "guessInput" maxlength = "1" style = "width: 10px"/>
-                <input id = "submitGuess" type = submit value = "Make a guess!">    
+                <input type = "text" id = "guessInput" maxlength = "1" style = "width: 10px; border-radius: 8px"/>
+                <input id = "submitGuess" type = submit value = "Make a guess!" style = "text-align: center; background-color: rgb(237, 204, 19); border-radius: 8px; font-family: 'Comic Sans MS', 'Comic Sans', cursive;">    
+                
+                
+                
             </form>
             
             <br><br><br>
