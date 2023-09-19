@@ -6,19 +6,19 @@ const hints = document.getElementById("hint")
 const hintText = document.getElementById("hintText")
 const guessBox = document.getElementById("guessInput")
 const submit = document.getElementById("submitGuess")
+const createForm =document.querySelector("#create-form");
+
 
 let noHints = 2
 console.log(hintText)
 
-//console.log(introPara)
-//console.log(strtbtn)
-//console.log(startButton)
-
 startButton.addEventListener("click", startGame)
 hints.addEventListener("click", provideHint)
 submit.addEventListener("click", submitGuess)
+createForm.addEventListener("submit", createNewFigure);
 
 async function startGame(){
+    
 try{
     const repsData = await fetch(`https://backendfigures.onrender.com/`)
     if (repsData.ok){
@@ -52,6 +52,7 @@ try{
 }
 }
 
+
 function provideHint(){
     if (noHints > 0){
         if (noHints == 2){
@@ -75,3 +76,38 @@ function submitGuess(e){
     console.log(name)
     e.target.guessInput.value = ""
 }
+
+async function createNewFigure(e) {
+
+    e.preventDefault();
+  
+    const data = {
+        name: e.target.name.value,
+        hint1: e.target.hint1.value,
+        hint2: e.target.hint2.value ,
+        funFact: e.target.funFact.value 
+
+    }
+    console.log(data)
+    const options = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+    }
+  
+    const response = await fetch("http://localhost:3000/Create", options);
+    console.log(response)
+    if (response.status == 201) {
+      e.target.name.value = ''
+      e.target.hint1.value = ''
+      e.target.hint2.value = ''
+      e.target.funFact.value  = ''
+      alert("Figure added.")
+    }
+    else{
+      alert("Something is wrong")
+    }
+  }
+
