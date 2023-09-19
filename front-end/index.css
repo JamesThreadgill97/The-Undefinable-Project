@@ -12,8 +12,10 @@ h1 {
     text-align: center;
 }
 
-#button {
+button {
     text-align: center;
     background-color: rgb(237, 204, 19);
     border-radius: 8px;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+
 }
