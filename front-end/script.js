@@ -11,13 +11,18 @@ const createForm =document.querySelector("#create-form");
 const vicLos = document.getElementById("winLose")
 const lettersUsed = document.getElementById("letterBank")
 const graphic = document.getElementById("hangmanGraphic")
-const { Console } = require("console")
+const counter = document.getElementById("WinLossCounter")
+const link = document.getElementById("hyperlink")
 
-console.log(graphic)
 
+console.log(counter)
+
+link.setAttribute("target", "")
 let letter_bank = []
 let noHints = 2
 let lives = 8
+let wins = 0
+let losses = 0
 
 startButton.addEventListener("click", startGame)
 hints.addEventListener("click", provideHint)
@@ -26,8 +31,11 @@ createForm.addEventListener("submit", createNewFigure);
 
 function youWin(){
     console.log("You win!")
+    wins++
     vicLos.textContent = `Congratulations! You win! Did you know...${hist["funFact"]}`
     
+}    
+function endGame(){
     guesses.style.display = "none"
     createForm.style.display = "inline"
     strtbtn.style.display = "inline";
@@ -40,30 +48,20 @@ function youWin(){
     graphic.style.borderRadius = "8px"
     graphic.style.width = "200px"
     graphic.style.width = "200px"
+    counter.textContent = `Wins: ${wins}, Losses:${losses}`
+    let nom = hist["name"].split(' ')
+    nom = nom.join('_')
+    link.setAttribute("href", `https://en.wikipedia.org/wiki/${nom}`)
+    link.setAttribute("target", "_blank")
     letter_bank = []
     lives = 8
-}    
+}
 
 function youLose(){
     console.log("You lose!")
+    losses++
     vicLos.textContent = `I'm sorry, you're out of lives! Did you know...${hist["funFact"]}`
-    guesses.style.display = "none"
-    createForm.style.display = "inline"
-    strtbtn.style.display = "inline";
-    introPara.style.display = "inline";
-    hints.style.display = "none";
-    lettersUsed.textContent = ""
-    underscores.textContent = hist["name"]
-    underscores.style.fontWeight = "bold"
-    graphic.src = `./Images/${hist["name"]}.png`
-    graphic.style.borderRadius = "8px"
-    graphic.style.width = "200px"
-    graphic.style.width = "200px"
-
-    letter_bank = []
-    lives = 8
-
-
+    
 }
 
 async function startGame(){
@@ -78,6 +76,9 @@ async function startGame(){
                 funFact: data.funFact
             }
             console.log(hist)
+            link.setAttribute("href", "javascript: void(0)")
+            link.setAttribute("target", "")
+
             strtbtn.style.display = "none";
             introPara.style.display = "none";
             hints.style.display = "inline";
@@ -86,6 +87,7 @@ async function startGame(){
             vicLos.textContent = "";
             graphic.src = "./Images/Hangman_0.png";
             graphic.style.borderRadius = "0px"
+            counter.textContent = `Wins: ${wins}, Losses:${losses}`
 
 
 
@@ -95,6 +97,7 @@ async function startGame(){
                     word[0][hs] = "/"
                 }
             }
+
             underscores.textContent = word[0].join("")
             lettersUsed.textContent = "Letters used: "
 
@@ -151,6 +154,7 @@ function submitGuess(e){
             console.log(underscores.textContent.includes(" _ "))
             if (underscores.textContent.includes("_") == false){
                 youWin()
+                endGame()
             }
         
         }else{
@@ -163,6 +167,7 @@ function submitGuess(e){
 
             if (lives == 0){
                 youLose()
+                endGame()
                 
             }
         }
