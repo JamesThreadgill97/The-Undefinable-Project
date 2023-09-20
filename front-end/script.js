@@ -14,6 +14,7 @@ const graphic = document.getElementById("hangmanGraphic")
 const counter = document.getElementById("WinLossCounter")
 const link = document.getElementById("hyperlink")
 
+
 console.log(counter)
 
 link.setAttribute("target", "")
@@ -180,35 +181,44 @@ function submitGuess(e){
 }
 
 async function createNewFigure(e) {
-
     e.preventDefault();
-  
-    const data = {
-        name: e.target.name.value,
-        hint1: e.target.hint1.value,
-        hint2: e.target.hint2.value ,
-        funFact: e.target.funFact.value 
+
+    if (e.target.name.value == "" ||e.target.hint1.value == "" ||e.target.hint2.value == "" ||e.target.funFact.value == "" ){
+        alert("Fill out all the boxes.")
     }
 
-    console.log(data)
-    const options = {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(data)
-    }
-  
-    const response = await fetch("https://backendfigures.onrender.com/Create", options);
-    console.log(response)
-    if (response.status == 201) {
-      e.target.name.value = ''
-      e.target.hint1.value = ''
-      e.target.hint2.value = ''
-      e.target.funFact.value  = ''
-      alert("Figure added.")
-    }
     else{
-      alert("Something is wrong")
-    }
+        
+        const data = {
+            name: e.target.name.value,
+            hint1: e.target.hint1.value,
+            hint2: e.target.hint2.value ,
+            funFact: e.target.funFact.value 
+    
+        }
+        console.log(data)
+        
+        const options = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        }
+    
+        const response = await fetch("https://backendfigures.onrender.com/Create", options);
+        console.log(response)
+        if (response.status == 201) {
+            e.target.name.value = ''
+            e.target.hint1.value = ''
+            e.target.hint2.value = ''
+            e.target.funFact.value  = ''
+            alert("Figure added.")
+            }
+        else{
+            alert("Something is wrong")
+        }
   }
+}
+
+module.exports={youWin,youLose,startGame,provideHint,submitGuess,createNewFigure,testEnvironment: 'jsdom'}

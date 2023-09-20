@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="index.css">
         <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
+        <link rel="shortcut icon" href="#" />
 
     </head>
     <body>
@@ -47,12 +47,38 @@
             <button id = "hint" type = click style = "display: none;">Need a hint?</button>
             <p id = "hintText"></p>
           </div>
-        
+
+          <div class="game-box">
+            <ul class="word-display">
+                <li class="letter"></li>
+                <li class="letter"></li>
+                <li class="letter"></li>
+                <li class="letter"></li>
+                <li class="letter"></li>
+                <li class="letter"></li>
+                <li class="letter"></li>
+            </ul>
+            <h4 class="hint-text">
+                Hint:
+                <p>insert text for hints here</p>
+            </h4>
+            <h4 class="guess-text">
+                Incorrect guesses:
+                <b>0 / 6</b>
+            </h4>
+            <div class="keyboard">
+                <button>a</button><button>b</button><button>c</button>
+            </div>
+          </div>
+
+
+
+          <h2>Enter your own historical figure</h2>
           <form id="create-form">
-            <input type="text" name="name" placeholder="name">
-            <input type="text" name="hint1" placeholder="hint1">
-            <input type="text" name="hint2" placeholder="hint2">
-            <input type="text" name="funFact" placeholder="funFact">
+            <input type="text" name="name" placeholder="Enter a Name">
+            <input type="text" name="hint1" placeholder="Enter a hint">
+            <input type="text" name="hint2" placeholder="Enter a hint">
+            <input type="text" name="funFact" placeholder="What is a fun fact about them?">
             <input type="submit" value="Create"> 
         </form>
 
