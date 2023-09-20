@@ -39,6 +39,9 @@ button {
     margin: 2px;
     border: 1px solid #ccc;
     cursor: pointer;
+    width: 80px;
+    height: 50px;
+    font-size: large;
     transition: background-color 0.3s;
 }
 .key:hover{
