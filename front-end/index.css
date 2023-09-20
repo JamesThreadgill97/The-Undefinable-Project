@@ -50,5 +50,7 @@ button:hover {
 .key:hover{
     background-color: #e0e0e0;
 }
-
+.key:disabled{
+    background-color: grey;
+}
 
