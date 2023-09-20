@@ -55,10 +55,12 @@ function endGame(){
         nom = "Sweyn_Forkbeard"
     }
     link.setAttribute("href", `https://en.wikipedia.org/wiki/${nom}`)
+    link.setAttribute("alt", `A picture of ${nom}`)
     link.setAttribute("target", "_blank")
     letter_bank = []
     lives = 8
-    hintText.textContent = "";
+    noHints = 2
+    hintText.textContent = ""
 
 }
 
