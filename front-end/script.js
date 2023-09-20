@@ -11,7 +11,7 @@ const graphic = document.getElementById("hangmanGraphic")
 const counter = document.getElementById("WinLossCounter")
 const link = document.getElementById("hyperlink")
 const boardKey = document.getElementById("keyboard")
-
+// const { Console } = require("console")
 
 console.log(counter)
 
