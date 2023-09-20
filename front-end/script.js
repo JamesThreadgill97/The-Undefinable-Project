@@ -58,6 +58,7 @@ function endGame(){
     link.setAttribute("target", "_blank")
     letter_bank = []
     lives = 8
+    hintText.textContent = "";
 
 }
 
@@ -105,7 +106,10 @@ async function startGame(){
 
             underscores.textContent = word[0].join("")
             lettersUsed.textContent = "Letters used: "
-
+            const buttons = document.querySelectorAll('.key');
+            buttons.forEach(button => {
+                button.removeAttribute('disabled');
+            });
         }else{
             throw "Something has gone wrong with the API request"
         }
