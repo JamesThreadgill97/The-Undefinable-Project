@@ -13,7 +13,7 @@ const lettersUsed = document.getElementById("letterBank")
 const graphic = document.getElementById("hangmanGraphic")
 const counter = document.getElementById("WinLossCounter")
 const link = document.getElementById("hyperlink")
-const { Console } = require("console")
+//const { Console } = require("console")
 
 console.log(counter)
 
@@ -221,4 +221,4 @@ async function createNewFigure(e) {
   }
 }
 
-module.exports={youWin,youLose,startGame,provideHint,submitGuess,createNewFigure,testEnvironment: 'jsdom'}
+//module.exports={youWin,youLose,startGame,provideHint,submitGuess,createNewFigure,testEnvironment: 'jsdom'}
