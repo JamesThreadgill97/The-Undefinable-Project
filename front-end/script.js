@@ -11,7 +11,6 @@ const graphic = document.getElementById("hangmanGraphic")
 const counter = document.getElementById("WinLossCounter")
 const link = document.getElementById("hyperlink")
 const boardKey = document.getElementById("keyboard")
-// const { Console } = require("console")
 
 console.log(counter)
 
@@ -31,10 +30,9 @@ function youWin(){
     console.log("You win!")
     wins++
     vicLos.textContent = `Congratulations! You win! Did you know...${hist["funFact"]}`
-    
+
 }    
 function endGame(){
-    guesses.style.display = "none"
     createForm.style.display = "inline"
     strtbtn.style.display = "inline";
     introPara.style.display = "inline";
@@ -46,6 +44,7 @@ function endGame(){
     graphic.style.borderRadius = "8px"
     graphic.style.width = "200px"
     graphic.style.width = "200px"
+    graphic.onmouseover = "scale: 1.2"
     boardKey.style.display = "none"
     counter.textContent = `Wins: ${wins}, Losses:${losses}`
     let nom = hist["name"].split(' ')
@@ -57,6 +56,7 @@ function endGame(){
     link.setAttribute("target", "_blank")
     letter_bank = []
     lives = 8
+
 }
 
 function youLose(){
@@ -127,60 +127,12 @@ function provideHint(){
     console.log(hintText.textContent)
 }
 
-function submitGuess(e){
-    
-    e.preventDefault();
-    const data = e.target.guessInput.value
-    let name = hist["name"]
-    e.target.guessInput.value = ""
-    
-    if (letter_bank.includes(data)){
-        alert(`You've already used "${data.toUpperCase()}"!`)
-
-    }else{letter_bank.push(data)
-        lettersUsed.textContent = `Letters used: ${letter_bank.join(", ")}`
-    
-    
-        if (name.toLowerCase().includes(data.toLowerCase())){
-            for(let j = 0; j < name.length; j++){
-                if (name[j].toLowerCase() == data.toLowerCase()){
-                    if (j == 0 || (j > 0 && word[0][j - 1] == "/")){
-                        word[0][j] = data.toUpperCase()
-                    }else{
-                        word[0][j] = data.toLowerCase()
-        
-                    }
-                }
-            }
-            underscores.textContent = word[0].join("")
-            console.log(underscores.textContent)
-            console.log(underscores.textContent.includes(" _ "))
-            if (underscores.textContent.includes("_") == false){
-                youWin()
-                endGame()
-            }
-        
-        }else{
-            lives--
-            console.log(`You have ${lives} lives remaining!`)
-            n = 8 - lives
-            console.log(lives)
-            string = `./Images/Hangman_${n}.png`
-            graphic.src = string
-
-            if (lives == 0){
-                youLose()
-                endGame()
-            }
-        }
-    }    
-}
 
 function KeyboardGuess(e){
     data = e.target.value
     console.log(data)
     let name = hist["name"]
-
+    e.target.disabled = true
 
     if (letter_bank.includes(data)){
         alert(`You've already used "${data.toUpperCase()}"!`)
