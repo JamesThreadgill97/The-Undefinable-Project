@@ -24,7 +24,6 @@ app.get("/", (req, res) => {
 
 app.post("/Create", (req, res) => {
     const newFigure = req.body; 
-    newFigure["id"] = historicalFigures.length;
     historicalFigures.push(newFigure)
     //console.log(historicalFigures);
     res.status(201).send(newFigure);
