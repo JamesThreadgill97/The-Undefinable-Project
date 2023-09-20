@@ -214,3 +214,5 @@ async function createNewFigure(e) {
         }
   }
 }
+
+module.exports={youWin,youLose,startGame,provideHint,submitGuess,createNewFigure}
