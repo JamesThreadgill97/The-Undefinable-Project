@@ -4,16 +4,13 @@ const strtbtn = document.getElementById("StartButton")
 const underscores = document.getElementById("HiddenWord")
 const hints = document.getElementById("hint")
 const hintText = document.getElementById("hintText")
-//const guessBox = document.getElementById("guessInput")
-//const submit = document.getElementById("submitGuess")
-const guesses = document.querySelector("#guess-form")
 const createForm =document.querySelector("#create-form");
 const vicLos = document.getElementById("winLose")
 const lettersUsed = document.getElementById("letterBank")
 const graphic = document.getElementById("hangmanGraphic")
 const counter = document.getElementById("WinLossCounter")
 const link = document.getElementById("hyperlink")
-//const { Console } = require("console")
+
 
 console.log(counter)
 
@@ -26,17 +23,16 @@ let losses = 0
 
 startButton.addEventListener("click", startGame)
 hints.addEventListener("click", provideHint)
-guesses.addEventListener("submit", submitGuess)
 createForm.addEventListener("submit", createNewFigure);
+boardKey.addEventListener("click", KeyboardGuess)
 
 function youWin(){
     console.log("You win!")
     wins++
     vicLos.textContent = `Congratulations! You win! Did you know...${hist["funFact"]}`
-    
+
 }    
 function endGame(){
-    guesses.style.display = "none"
     createForm.style.display = "inline"
     strtbtn.style.display = "inline";
     introPara.style.display = "inline";
@@ -48,13 +44,19 @@ function endGame(){
     graphic.style.borderRadius = "8px"
     graphic.style.width = "200px"
     graphic.style.width = "200px"
+    graphic.onmouseover = "scale: 1.2"
+    boardKey.style.display = "none"
     counter.textContent = `Wins: ${wins}, Losses:${losses}`
     let nom = hist["name"].split(' ')
     nom = nom.join('_')
+    if (hist["name"] == "King Sweyn Forkbeard"){
+        nom = "Sweyn_Forkbeard"
+    }
     link.setAttribute("href", `https://en.wikipedia.org/wiki/${nom}`)
     link.setAttribute("target", "_blank")
     letter_bank = []
     lives = 8
+
 }
 
 function youLose(){
@@ -82,11 +84,12 @@ async function startGame(){
             strtbtn.style.display = "none";
             introPara.style.display = "none";
             hints.style.display = "inline";
-            guesses.style.display = "inline";
+            //guesses.style.display = "inline";
             createForm.style.display = "none";
             vicLos.textContent = "";
             graphic.src = "./Images/Hangman_0.png";
             graphic.style.borderRadius = "0px"
+            boardKey.style.display = "flex"
             counter.textContent = `Wins: ${wins}, Losses:${losses}`
 
 
@@ -124,20 +127,18 @@ function provideHint(){
     console.log(hintText.textContent)
 }
 
-function submitGuess(e){
-    
-    e.preventDefault();
-    const data = e.target.guessInput.value
+
+function KeyboardGuess(e){
+    data = e.target.value
+    console.log(data)
     let name = hist["name"]
-    e.target.guessInput.value = ""
-    
+    e.target.disabled = true
+
     if (letter_bank.includes(data)){
         alert(`You've already used "${data.toUpperCase()}"!`)
 
     }else{letter_bank.push(data)
         lettersUsed.textContent = `Letters used: ${letter_bank.join(", ")}`
-    
-    
         if (name.toLowerCase().includes(data.toLowerCase())){
             for(let j = 0; j < name.length; j++){
                 if (name[j].toLowerCase() == data.toLowerCase()){
@@ -168,16 +169,9 @@ function submitGuess(e){
             if (lives == 0){
                 youLose()
                 endGame()
-                
             }
         }
-
-    }
-    
-    
-
-    
-    
+    }    
 }
 
 async function createNewFigure(e) {
@@ -221,4 +215,7 @@ async function createNewFigure(e) {
   }
 }
 
+
 //module.exports={youWin,youLose,startGame,provideHint,submitGuess,createNewFigure,testEnvironment: 'jsdom'}
+//export default youWin; youLose; startGame; provideHint; submitGuess; createNewFigure; testEnvironment: 'jsdom'
+

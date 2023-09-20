@@ -30,51 +30,63 @@
           <div>
             <p id = "HiddenWord"></p>
             <p id = "winLose"></p>
-            <p id = "WinLossCounter"
+            <p id = "WinLossCounter"></p>
             <br><br><br>
             
             <form id = "guess-form" style = "display: none">
                 <input type = "text" id = "guessInput" maxlength = "1" style = "width: 10px; border-radius: 8px"/>
                 <input id = "submitGuess" type = submit value = "Make a guess!" style = "text-align: center; background-color: rgb(237, 204, 19); border-radius: 8px; font-family: 'Comic Sans MS', 'Comic Sans', cursive;">    
-                
-                
-                
             </form>
+            <div id="keyboard" style = "display: none">
+                <div class="key-row">
+                    <button class="key" type = click value = 'q'>q</button>
+                    <button class="key" type = click value = 'w'>w</button>
+                    <button class="key" type = click value = 'e'>e</button>
+                    <button class="key" type = click value = 'r'>r</button>
+                    <button class="key" type = click value = 't'>t</button>
+                    <button class="key" type = click value = 'y'>y</button>
+                    <button class="key" type = click value = 'u'>u</button>
+                    <button class="key" type = click value = 'i'>i</button>
+                    <button class="key" type = click value = 'o'>o</button>
+                    <button class="key" type = click value = 'p'>p</button>
+                </div>
+                <div class="key-row">
+                    <button class="key" type = click value = 'a'>a</button>
+                    <button class="key" type = click value = 's'>s</button>
+                    <button class="key" type = click value = 'd'>d</button>
+                    <button class="key" type = click value = 'f'>f</button>
+                    <button class="key" type = click value = 'w'>g</button>
+                    <button class="key" type = click value = 'h'>h</button>
+                    <button class="key" type = click value = 'j'>j</button>
+                    <button class="key" type = click value = 'k'>k</button>
+                    <button class="key" type = click value = 'l'>l</button>
+                </div>
+                <div class="key-row">
+                    <button class="key" type = click value = 'z'>z</button>
+                    <button class="key" type = click value = 'x'>x</button>
+                    <button class="key" type = click value = 'c'>c</button>
+                    <button class="key" type = click value = 'v'>v</button>
+                    <button class="key" type = click value = 'b'>b</button>
+                    <button class="key" type = click value = 'n'>n</button>
+                    <button class="key" type = click value = 'm'>m</button>
+                </div>
+            </div>
+    
             
-            <br><br><br>
+            <br>
             <p id = "letterBank"></p>
 
             <button id = "hint" type = click style = "display: none;">Need a hint?</button>
             <p id = "hintText"></p>
           </div>
 
-          <div class="game-box">
-            <ul class="word-display">
-                <li class="letter"></li>
-                <li class="letter"></li>
-                <li class="letter"></li>
-                <li class="letter"></li>
-                <li class="letter"></li>
-                <li class="letter"></li>
-                <li class="letter"></li>
-            </ul>
-            <h4 class="hint-text">
-                Hint:
-                <p>insert text for hints here</p>
-            </h4>
-            <h4 class="guess-text">
-                Incorrect guesses:
-                <b>0 / 6</b>
-            </h4>
-            <div class="keyboard">
-                <button>a</button><button>b</button><button>c</button>
-            </div>
-          </div>
+      
 
 
 
-          <h2>Enter your own historical figure</h2>
           <form id="create-form">
+            <h2>Enter your own historical figure</h2>
+
             <input type="text" name="name" placeholder="Enter a Name">
             <input type="text" name="hint1" placeholder="Enter a hint">
             <input type="text" name="hint2" placeholder="Enter a hint">
