@@ -1,14 +1,21 @@
 body {
+    background-color: #c8fff5 ;
+    color: #36454F;
     text-align: center;
-    justify-content: center;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    justify-content: left;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
 }
 
 h1 {
-    color: rgb(44, 109, 237);
+    color: #36454F;
     font-size: 50 px;
+    text-align: center;
 }
 
-#button {
+button {
+    text-align: center;
     background-color: rgb(237, 204, 19);
+    border-radius: 8px;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+
 }
