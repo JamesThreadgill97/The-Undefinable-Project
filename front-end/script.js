@@ -11,12 +11,15 @@ const createForm =document.querySelector("#create-form");
 const vicLos = document.getElementById("winLose")
 const lettersUsed = document.getElementById("letterBank")
 const graphic = document.getElementById("hangmanGraphic")
+const counter = document.getElementById("WinLossCounter")
 
-console.log(graphic)
+console.log(counter)
 
 let letter_bank = []
 let noHints = 2
 let lives = 8
+let wins = 0
+let losses = 0
 
 startButton.addEventListener("click", startGame)
 hints.addEventListener("click", provideHint)
@@ -25,6 +28,7 @@ createForm.addEventListener("submit", createNewFigure);
 
 function youWin(){
     console.log("You win!")
+    wins++
     vicLos.textContent = `Congratulations! You win! Did you know...${hist["funFact"]}`
     
     guesses.style.display = "none"
@@ -41,10 +45,13 @@ function youWin(){
     graphic.style.width = "200px"
     letter_bank = []
     lives = 8
+    counter.textContent = `Wins: ${wins}, Losses:${losses}`
+
 }    
 
 function youLose(){
     console.log("You lose!")
+    losses++
     vicLos.textContent = `I'm sorry, you're out of lives! Did you know...${hist["funFact"]}`
     guesses.style.display = "none"
     createForm.style.display = "inline"
@@ -58,11 +65,11 @@ function youLose(){
     graphic.style.borderRadius = "8px"
     graphic.style.width = "200px"
     graphic.style.width = "200px"
+    counter.textContent = `Wins: ${wins}, Losses:${losses}`
+
 
     letter_bank = []
     lives = 8
-
-
 }
 
 async function startGame(){
@@ -85,6 +92,7 @@ async function startGame(){
             vicLos.textContent = "";
             graphic.src = "./Images/Hangman_0.png";
             graphic.style.borderRadius = "0px"
+            counter.textContent = `Wins: ${wins}, Losses:${losses}`
 
 
 
