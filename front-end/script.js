@@ -11,6 +11,7 @@ const createForm =document.querySelector("#create-form");
 const vicLos = document.getElementById("winLose")
 const lettersUsed = document.getElementById("letterBank")
 const graphic = document.getElementById("hangmanGraphic")
+const { Console } = require("console")
 
 console.log(graphic)
 
@@ -214,3 +215,5 @@ async function createNewFigure(e) {
         }
   }
 }
+
+module.exports={youWin,youLose,startGame,provideHint,submitGuess,createNewFigure,testEnvironment: 'jsdom'}
