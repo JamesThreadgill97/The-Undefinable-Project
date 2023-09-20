@@ -19,6 +19,9 @@ button {
     font-family: "Comic Sans MS", "Comic Sans", cursive;
 
 }
+button:hover {
+    background-color: #e0e0e0;
+}
 
 #textInput {
     width: 80%;
