@@ -6,3 +6,6 @@ History Hangman is an application that allows the student to start playing a nor
 If they manage to get the name of the historian right, a photo of them appears. This allows the student to have a better representation of the historian and learn in a visual way. 
 
 
+Bullets of main feature
+
+How to run
