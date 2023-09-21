@@ -184,7 +184,8 @@ function KeyboardGuess(e){
 
 async function createNewFigure(e) {
     e.preventDefault();
-    const TestString=/^[A-Za-z]+$/;
+    //// The ^ and $ symbols ensure that the entire string is composed of letters and/or spaces only
+    const TestString=/^[A-Za-z\s]+$/;
 
     if (e.target.name.value == "" ||e.target.hint1.value == "" ||e.target.hint2.value == "" ||e.target.funFact.value == "" ){
         alert("Fill out all the boxes.");
