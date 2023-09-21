@@ -139,7 +139,8 @@ function provideHint(){
 function KeyboardGuess(e){
     data = e.target.value
     console.log(data)
-    let name = hist["name"]
+    if(data != undefined){
+        let name = hist["name"]
     e.target.disabled = true
 
     if (letter_bank.includes(data)){
@@ -179,7 +180,9 @@ function KeyboardGuess(e){
                 endGame()
             }
         }
-    }    
+    } 
+    }
+       
 }
 
 async function createNewFigure(e) {
