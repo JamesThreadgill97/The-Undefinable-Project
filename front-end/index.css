@@ -1,14 +1,56 @@
 body {
+    background-color: #c8fff5 ;
+    color: #36454F;
     text-align: center;
-    justify-content: center;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    justify-content: left;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
 }
 
 h1 {
-    color: rgb(44, 109, 237);
+    color: #36454F;
     font-size: 50 px;
+    text-align: center;
 }
 
-#button {
+button {
+    text-align: center;
     background-color: rgb(237, 204, 19);
+    border-radius: 8px;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+
 }
+button:hover {
+    background-color: #e0e0e0;
+}
+
+#textInput {
+    width: 80%;
+    height: 50px;
+    margin-bottom: 20px;
+}
+#keyboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.key-row {
+    display: flex;
+    margin-bottom: 10px;
+}
+.key {
+    padding: 10px;
+    margin: 2px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    width: 80px;
+    height: 50px;
+    font-size: large;
+    transition: background-color 0.3s;
+}
+.key:hover{
+    background-color: #e0e0e0;
+}
+.key:disabled{
+    background-color: grey;
+}
+

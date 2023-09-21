@@ -1,16 +1,96 @@
 <!DOCTYPE html>
-<html lang="en">
-    <div class="wrapper">
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Historical Hangman</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="index.css">
+        <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="shortcut icon" href="#" />
+
+    </head>
+    <body>
         <h1>History Hangman</h1>
-         <h2>Test your History Knowledge with the Hangman Game!</h2>
-         <p>Use the alphabet below to guess the word, or click hint to get a clue. Note: Only two hints available - Good Luck!</p>
-     </div>
+        <div class="wrapper" id = "siteIntro">
+             <h2>Test your History Knowledge with the Hangman Game!</h2>
+             <p>Use the alphabet below to guess the word, or click hint to get a clue. <br>Note: Only two hints available - Good Luck!</p>
+            </div>
+            <a id = "hyperlink" href="" target = "_blank">
+                <img id = "hangmanGraphic" src = "./Images/Hangman_8.png" href = "" style =  >
+            </a>    
+            <br><br>
+         <div class="container" id = "StartButton">
+            <button id="start" type = click style = "width: 80px; height: 50px; font-size: large">Start</button>
+          </div>
 
-     <div class="container">
-        <button id="start">Start</button>
-      </div>
+          <div>
+            <p id = "HiddenWord"></p>
+            <p id = "winLose"></p>
+            <p id = "WinLossCounter"></p>
+        
+            <br>           
+            <form id = "guess-form" style = "display: none">
+                <input type = "text" id = "guessInput" maxlength = "1" style = "width: 10px; border-radius: 8px"/>
+                <input id = "submitGuess" type = submit value = "Make a guess!" style = "text-align: center; background-color: rgb(237, 204, 19); border-radius: 8px; font-family: 'Comic Sans MS', 'Comic Sans', cursive;">    
+            </form>
+            <div id="keyboard" style = "display: none">
+                <div class="key-row">
+                    <button class="key" type = click value = 'q'>Q</button>
+                    <button class="key" type = click value = 'w'>W</button>
+                    <button class="key" type = click value = 'e'>E</button>
+                    <button class="key" type = click value = 'r'>R</button>
+                    <button class="key" type = click value = 't'>T</button>
+                    <button class="key" type = click value = 'y'>Y</button>
+                    <button class="key" type = click value = 'u'>U</button>
+                    <button class="key" type = click value = 'i'>I</button>
+                    <button class="key" type = click value = 'o'>O</button>
+                    <button class="key" type = click value = 'p'>P</button>
+                </div>
+                <div class="key-row">
+                    <button class="key" type = click value = 'a'>A</button>
+                    <button class="key" type = click value = 's'>S</button>
+                    <button class="key" type = click value = 'd'>D</button>
+                    <button class="key" type = click value = 'f'>F</button>
+                    <button class="key" type = click value = 'g'>G</button>
+                    <button class="key" type = click value = 'h'>H</button>
+                    <button class="key" type = click value = 'j'>J</button>
+                    <button class="key" type = click value = 'k'>K</button>
+                    <button class="key" type = click value = 'l'>L</button>
+                </div>
+                <div class="key-row">
+                    <button class="key" type = click value = 'z'>Z</button>
+                    <button class="key" type = click value = 'x'>X</button>
+                    <button class="key" type = click value = 'c'>C</button>
+                    <button class="key" type = click value = 'v'>V</button>
+                    <button class="key" type = click value = 'b'>B</button>
+                    <button class="key" type = click value = 'n'>N</button>
+                    <button class="key" type = click value = 'm'>M</button>
+                </div>
+            </div>
+            <p id = "letterBank"></p>
 
-<body>
-    
-</body>
+            <button id = "hint" type = click style = "display: none; width: 130px; height: 60px; font-size: large">Need a hint?</button>
+            <p id = "hintText"></p>
+          </div>
+
+      
+
+
+
+          <form id="create-form">
+            <h2>Enter your own historical figure</h2>
+
+            <input type="text" name="name" placeholder="Enter a Name">
+            <input type="text" name="hint1" placeholder="Enter a hint">
+            <input type="text" name="hint2" placeholder="Enter a hint">
+            <input type="text" name="funFact" placeholder="What is a fun fact about them?">
+            <input type="submit" value="Create"> 
+        </form>
+
+        <script src="./script.js" async defer></script>
+    </body>
 </html>

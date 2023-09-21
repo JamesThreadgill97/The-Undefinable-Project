@@ -1,0 +1,23 @@
+{
+  "name": "front-end",
+  "version": "1.0.0",
+  "description": "Welcome to the History Hangman Game created by The Undefinables!",
+  "main": "hangman.js",
+  "scripts": {
+    "dev": "node script.js",
+    "test": "jest script.test.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "jsdom": "^22.1.0"
+  },
+  "dependencies": {
+    "node": "^20.6.0"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  }
+}
