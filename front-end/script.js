@@ -194,8 +194,8 @@ async function createNewFigure(e) {
         alert("Fill out all the boxes.");
     }
 
-    else if (TestString.test(e.target.name.value)== false || TestString.test(e.target.hint1.value)== false ||TestString.test(e.target.hint2.value)== false ||TestString.test(e.target.funFact.value)== false ){
-        alert("Please Enter Only Letters");
+    else if (TestString.test(e.target.name.value)== false ){
+        alert("The name can only contain Letters");
     }
     
     else{
