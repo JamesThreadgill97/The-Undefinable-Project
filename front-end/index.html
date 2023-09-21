@@ -10,26 +10,35 @@
         <link rel="stylesheet" href="index.css">
         <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
         <link rel="shortcut icon" href="#" />
 
     </head>
-    <body>
+    <body style = "background-color: #c8fff5; color: #36454F; font-family: 'Comic Sans MS', 'Comic Sans', cursive;">
         <h1>History Hangman</h1>
-        <div class="wrapper" id = "siteIntro">
-             <h2>Test your History Knowledge with the Hangman Game!</h2>
+        <div class="text-center" id = "siteIntro">
+             <h2 style = "justify-content: center;">Test your History Knowledge with the Hangman Game!</h2>
              <p>Use the alphabet below to guess the word, or click hint to get a clue. <br>Note: Only two hints available - Good Luck!</p>
-            </div>
-            <a id = "hyperlink" href="" target = "_blank">
-                <img id = "hangmanGraphic" src = "./Images/Hangman_8.png" href = "" style =  >
+        </div>
+        <div class="text-center">
+            <a  id = "hyperlink" href="" target = "_blank">
+                <img " id = "hangmanGraphic" src = "./Images/Hangman_8.png" href = "" style =  >
             </a>    
-            <br><br>
-         <div class="container" id = "StartButton">
-            <button id="start" type = click style = "width: 80px; height: 50px; font-size: large">Start</button>
-          </div>
+        </div>
 
-          <div>
+            <br><br>
+
+        <div class = "justify-content-center">
+         <div class="text-center" id = "StartButton">
+            <button id="start" type = click style = "width: 80px; height: 50px; font-size: large; border-radius: 8px">Start</button>
+          </div>
+        </div>
+        <br>
+
+          <div class = "text-center">
             <p id = "HiddenWord"></p>
-            <p id = "winLose"></p>
+            <p id = "winLose" style = "display: flex; width: 100ch; margin: 0 auto"></p>
             <p id = "WinLossCounter"></p>
         
             <br>           
@@ -39,36 +48,36 @@
             </form>
             <div id="keyboard" style = "display: none">
                 <div class="key-row">
-                    <button class="key" type = click value = 'q'>Q</button>
-                    <button class="key" type = click value = 'w'>W</button>
-                    <button class="key" type = click value = 'e'>E</button>
-                    <button class="key" type = click value = 'r'>R</button>
-                    <button class="key" type = click value = 't'>T</button>
-                    <button class="key" type = click value = 'y'>Y</button>
-                    <button class="key" type = click value = 'u'>U</button>
-                    <button class="key" type = click value = 'i'>I</button>
-                    <button class="key" type = click value = 'o'>O</button>
-                    <button class="key" type = click value = 'p'>P</button>
+                    <button class="key" type = click value = 'q' style = "border-radius: 8px;">Q</button>
+                    <button class="key" type = click value = 'w' style = "border-radius: 8px;">W</button>
+                    <button class="key" type = click value = 'e' style = "border-radius: 8px;">E</button>
+                    <button class="key" type = click value = 'r' style = "border-radius: 8px;">R</button>
+                    <button class="key" type = click value = 't' style = "border-radius: 8px;">T</button>
+                    <button class="key" type = click value = 'y' style = "border-radius: 8px;">Y</button>
+                    <button class="key" type = click value = 'u' style = "border-radius: 8px;">U</button>
+                    <button class="key" type = click value = 'i' style = "border-radius: 8px;">I</button>
+                    <button class="key" type = click value = 'o' style = "border-radius: 8px;">O</button>
+                    <button class="key" type = click value = 'p' style = "border-radius: 8px;">P</button>
                 </div>
                 <div class="key-row">
-                    <button class="key" type = click value = 'a'>A</button>
-                    <button class="key" type = click value = 's'>S</button>
-                    <button class="key" type = click value = 'd'>D</button>
-                    <button class="key" type = click value = 'f'>F</button>
-                    <button class="key" type = click value = 'g'>G</button>
-                    <button class="key" type = click value = 'h'>H</button>
-                    <button class="key" type = click value = 'j'>J</button>
-                    <button class="key" type = click value = 'k'>K</button>
-                    <button class="key" type = click value = 'l'>L</button>
+                    <button class="key" type = click value = 'a' style = "border-radius: 8px;">A</button>
+                    <button class="key" type = click value = 's' style = "border-radius: 8px;">S</button>
+                    <button class="key" type = click value = 'd' style = "border-radius: 8px;">D</button>
+                    <button class="key" type = click value = 'f' style = "border-radius: 8px;">F</button>
+                    <button class="key" type = click value = 'g' style = "border-radius: 8px;">G</button>
+                    <button class="key" type = click value = 'h' style = "border-radius: 8px;">H</button>
+                    <button class="key" type = click value = 'j' style = "border-radius: 8px;">J</button>
+                    <button class="key" type = click value = 'k' style = "border-radius: 8px;">K</button>
+                    <button class="key" type = click value = 'l' style = "border-radius: 8px;">L</button>
                 </div>
                 <div class="key-row">
-                    <button class="key" type = click value = 'z'>Z</button>
-                    <button class="key" type = click value = 'x'>X</button>
-                    <button class="key" type = click value = 'c'>C</button>
-                    <button class="key" type = click value = 'v'>V</button>
-                    <button class="key" type = click value = 'b'>B</button>
-                    <button class="key" type = click value = 'n'>N</button>
-                    <button class="key" type = click value = 'm'>M</button>
+                    <button class="key" type = click value = 'z' style = "border-radius: 8px;">Z</button>
+                    <button class="key" type = click value = 'x' style = "border-radius: 8px;">X</button>
+                    <button class="key" type = click value = 'c' style = "border-radius: 8px;">C</button>
+                    <button class="key" type = click value = 'v' style = "border-radius: 8px;">V</button>
+                    <button class="key" type = click value = 'b' style = "border-radius: 8px;">B</button>
+                    <button class="key" type = click value = 'n' style = "border-radius: 8px;">N</button>
+                    <button class="key" type = click value = 'm' style = "border-radius: 8px;">M</button>
                 </div>
             </div>
             <p id = "letterBank"></p>
@@ -80,16 +89,19 @@
       
 
 
-
-          <form id="create-form">
-            <h2>Enter your own historical figure</h2>
-
-            <input type="text" name="name" placeholder="Enter a Name">
-            <input type="text" name="hint1" placeholder="Enter a hint">
-            <input type="text" name="hint2" placeholder="Enter a hint">
-            <input type="text" name="funFact" placeholder="What is a fun fact about them?">
-            <input type="submit" value="Create"> 
+    <div class = "container d-flex justify-content-center">
+          <form id="create-form" >
+            <div class = "mb-3">
+            <h2 style = "text-align: center;">Enter your own historical figure</h2>
+            
+            <input type="text" name="name" placeholder="Enter a Name" style = "border-radius: 8px; position: relative; left: -40px">
+            <input type="text" name="hint1" placeholder="Enter a hint"style = "border-radius: 8px; position: relative; left: -30px">
+            <input type="text" name="hint2" placeholder="Enter a hint"style = "border-radius: 8px; position: relative; left: -20px">
+            <input type="text" name="funFact" placeholder="What is a fun fact about them?"style = "border-radius: 8px; position: relative; left: -10px">
+            <input type="submit" value="Create" style = "border-radius: 8px; position: relative; left: 0px"> 
+        </div>
         </form>
+    </div>
 
         <script src="./script.js" async defer></script>
     </body>

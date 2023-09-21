@@ -14,7 +14,7 @@ const link = document.getElementById("hyperlink")
 const boardKey = document.getElementById("keyboard")
 
 
-console.log(counter)
+console.log(strtbtn)
 
 link.setAttribute("target", "")
 let letter_bank = []
@@ -36,7 +36,8 @@ function youWin(){
 }    
 function endGame(){
     createForm.style.display = "inline"
-    strtbtn.style.display = "inline";
+    strtbtn.style.display = "flex"
+    strtbtn.style.justifyContent = "center";
     introPara.style.display = "inline";
     hints.style.display = "none";
     lettersUsed.textContent = ""
@@ -105,9 +106,9 @@ async function startGame(){
                     word[0][hs] = "/"
                 }
             }
-
             underscores.textContent = word[0].join("")
             lettersUsed.textContent = "Letters used: "
+
             const buttons = document.querySelectorAll('.key');
             buttons.forEach(button => {
                 button.removeAttribute('disabled');
