@@ -21,6 +21,6 @@ There are two way to run our Project
 2. You can play it locally on your machine, 
     1. Download the files  
     2. Click on the index.html file in the front-end folder
-    3. Select the Go Live button if you have the Live Server Extentiion installed on VS Code or you can drag and drop the index.html into your browser
+    3. Select the Go Live button if you have the Live Server Extension installed on VS Code or you can drag and drop the index.html into your browser
 
 
