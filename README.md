@@ -8,5 +8,19 @@ If they manage to get the name of the historian right, a photo of them appears. 
 
 Bullets of main feature
 
+- You can guess historical figures from History
+- You can keep track of your wins and loses 
+- You can read more about the historical figure by clicking on the image after you finished the game
+- You can add your own historical figures to the game
+
 How to run
+
+There are two way to run our Project
+
+1. You can play it online through our website https://history-hangman.onrender.com/ 
+2. You can play it locally on your machine, 
+    1. Download the files  
+    2. Click on the index.html file in the front-end folder
+    3. Select the Go Live button or drag and drop the file into your browser
+
 
