@@ -7,7 +7,7 @@ History Hangman is an application that allows the student to start playing a nor
 If they manage to get the name of the historical figure right, a photo of them appears. If you click on the photo, you will sent to the wikipedia page for that historical figure. This allows the student to have a better representation of the historical figure and learn in a visual way. 
 
 
-## Bullets of main feature
+## Main features
 
 - You can guess historical figures from History
 - You can keep track of your wins and loses 
