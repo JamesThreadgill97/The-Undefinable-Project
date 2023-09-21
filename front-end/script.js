@@ -184,11 +184,16 @@ function KeyboardGuess(e){
 
 async function createNewFigure(e) {
     e.preventDefault();
+    const TestString=/^[A-Za-z]+$/;
 
     if (e.target.name.value == "" ||e.target.hint1.value == "" ||e.target.hint2.value == "" ||e.target.funFact.value == "" ){
-        alert("Fill out all the boxes.")
+        alert("Fill out all the boxes.");
     }
 
+    else if (TestString.test(e.target.name.value)== false || TestString.test(e.target.hint1.value)== false ||TestString.test(e.target.hint2.value)== false ||TestString.test(e.target.funFact.value)== false ){
+        alert("Please Enter Only Letters");
+    }
+    
     else{
         
         const data = {
