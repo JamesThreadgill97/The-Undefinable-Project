@@ -14,7 +14,7 @@ const link = document.getElementById("hyperlink")
 const boardKey = document.getElementById("keyboard")
 
 
-console.log(counter)
+console.log(strtbtn)
 
 link.setAttribute("target", "")
 let letter_bank = []
@@ -36,7 +36,8 @@ function youWin(){
 }    
 function endGame(){
     createForm.style.display = "inline"
-    strtbtn.style.display = "inline";
+    strtbtn.style.display = "flex"
+    strtbtn.style.justifyContent = "center";
     introPara.style.display = "inline";
     hints.style.display = "none";
     lettersUsed.textContent = ""
@@ -105,9 +106,9 @@ async function startGame(){
                     word[0][hs] = "/"
                 }
             }
-
             underscores.textContent = word[0].join("")
             lettersUsed.textContent = "Letters used: "
+
             const buttons = document.querySelectorAll('.key');
             buttons.forEach(button => {
                 button.removeAttribute('disabled');
@@ -139,7 +140,8 @@ function provideHint(){
 function KeyboardGuess(e){
     data = e.target.value
     console.log(data)
-    let name = hist["name"]
+    if(data != undefined){
+        let name = hist["name"]
     e.target.disabled = true
 
     if (letter_bank.includes(data)){
@@ -179,16 +181,24 @@ function KeyboardGuess(e){
                 endGame()
             }
         }
-    }    
+    } 
+    }
+       
 }
 
 async function createNewFigure(e) {
     e.preventDefault();
+    
+    const TestString=/^[A-Za-z\s]+$/;
 
     if (e.target.name.value == "" ||e.target.hint1.value == "" ||e.target.hint2.value == "" ||e.target.funFact.value == "" ){
-        alert("Fill out all the boxes.")
+        alert("Fill out all the boxes.");
     }
 
+    else if (TestString.test(e.target.name.value)== false ){
+        alert("The name can only contain Letters");
+    }
+    
     else{
         
         const data = {
